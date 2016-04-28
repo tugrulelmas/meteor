@@ -22,8 +22,6 @@ class PartyCreator {
         }
 
         const owner = this.party.owner;
-        console.log(this.party);
-        console.log(owner);
 
         if (Meteor.userId() !== null && owner === Meteor.userId()) {
           return 'me';

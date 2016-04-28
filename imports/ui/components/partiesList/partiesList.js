@@ -8,7 +8,7 @@ import { Counts } from 'meteor/tmeasday:publish-counts';
 import './partiesList.html';
 import { Parties } from '../../../api/parties';
 import { name as PartiesSort } from '../partiesSort/partiesSort';
-import { name as PartyAdd } from '../partyAdd/partyAdd';
+import { name as PartyAddButton } from '../partyAddButton/partyAddButton';
 import { name as PartyRemove } from '../partyRemove/partyRemove';
 import { name as PartyCreator } from '../partyCreator/partyCreator';
 
@@ -39,6 +39,9 @@ class PartiesList {
       },
       partiesCount() {
         return Counts.get('numberOfParties');
+      },
+      isLoggedIn() {
+        return !!Meteor.userId();
       }
     });
   }
@@ -60,7 +63,7 @@ export default angular.module(name, [
   uiRouter,
   utilsPagination,
   PartiesSort,
-  PartyAdd,
+  PartyAddButton,
   PartyRemove,
   PartyCreator
 ]).component(name, {

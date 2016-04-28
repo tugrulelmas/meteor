@@ -22,6 +22,9 @@ class PartyDetails {
           _id: $stateParams.partyId
         });
       },
+      isLoggedIn() {
+       return !!Meteor.userId();
+     },
       users() {
         return Meteor.users.find({});
       }
